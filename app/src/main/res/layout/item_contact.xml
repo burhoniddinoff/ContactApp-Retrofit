@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="120dp"
+    android:layout_marginHorizontal="15dp"
+    android:layout_marginVertical="5dp"
+    android:background="@drawable/bg_contact"
+    android:orientation="horizontal">
+
+<!--    <LinearLayout-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:gravity="center"-->
+<!--        android:padding="5dp">-->
+
+<!--        <ImageView-->
+<!--            android:id="@+id/contactImage"-->
+<!--            android:layout_width="70dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:src="@drawable/ic_user" />-->
+
+<!--    </LinearLayout>-->
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="30dp"
+        android:gravity="center|start"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/contactName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:justificationMode="inter_word"
+            android:textColor="@color/black"
+            android:textSize="22sp"
+            tools:ignore="TextViewEdits"
+            tools:text="Abdulqodir" />
+
+        <TextView
+            android:id="@+id/contactLName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:justificationMode="inter_word"
+            android:textColor="@color/black"
+            android:textSize="22sp"
+            tools:ignore="TextViewEdits"
+            tools:text="Abdulqodir" />
+
+        <TextView
+            android:id="@+id/contactNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#494646"
+            android:textSize="18sp"
+            tools:text="+998 91 498 86 26" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

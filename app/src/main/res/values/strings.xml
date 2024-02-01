@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">ContactAppWithInternet</string>
+    <string name="contacts_is_empty">Contacts Is Empty</string>
+    <string name="my_contacts">Contact app</string>
+    <string name="contact_name">Contact name</string>
+    <string name="phone_number">Phone number</string>
+    <string name="save">Save</string>
+    <string name="add_contact">Add contact</string>
+</resources>

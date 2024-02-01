@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="DialogStyle">
+        <![CDATA[   <style name="DialogStyle" parent="Base.Theme.AppCompat.Dialog">         <item name="android:windowMinWidthMajor">97%</item>         <item name="android:windowMinWidthMinor">97%</item>     </style>]]></style>
+
+    <style name="DialogAnimation">
+        <item name="android:windowEnterAnimation">@anim/slide_in_bottom</item>
+        <item name="android:windowExitAnimation">@anim/slide_out_bottom</item>
+    </style>
+</resources>
