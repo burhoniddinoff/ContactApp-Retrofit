@@ -13,6 +13,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.contactappwithinternet.R
 import com.example.contactappwithinternet.databinding.ScreenContactBinding
@@ -37,12 +38,25 @@ class ContactScreen : Fragment(R.layout.screen_contact) {
             showDialog(it)
         }
 
+        adapter.setOnClickListener {
+            val fullName = "${it.firstName} ${it.lastName}"
+            findNavController().navigate(
+                ContactScreenDirections.actionContactScreenToInfoScreen(
+                    fullName, it.phone
+                )
+            )
+        }
+
         viewModel.loadAllContact()
         viewModel.contact.observe(viewLifecycleOwner, contactObserver)
         viewModel.progressBar.observe(viewLifecycleOwner, progressObserver)
         viewModel.isEmpty.observe(viewLifecycleOwner, isEmptyObserver)
         viewModel.error.observe(viewLifecycleOwner, errorObserver)
         viewModel.openAddScreen.observe(viewLifecycleOwner, openAddScreenObserver)
+        viewModel.success.observe(viewLifecycleOwner, successMessageObserver)
+
+
+        requireActivity().window.statusBarColor = Color.parseColor("#9D9BFE")
     }
 
     private val contactObserver = Observer<List<ContactResponse>> {
@@ -61,7 +75,10 @@ class ContactScreen : Fragment(R.layout.screen_contact) {
 
     private val errorObserver = Observer<String> {
         Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show()
-        Log.d("TTT", it)
+    }
+
+    private val successMessageObserver = Observer<String> {
+        Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show()
     }
 
     private val openAddScreenObserver = Observer<Unit> {
@@ -91,10 +108,8 @@ class ContactScreen : Fragment(R.layout.screen_contact) {
                 viewModel.updateContact(EditContactRequest(data.id, fName, lName, number))
             }
 
-
             dialog.dismiss()
             editDialog.show(childFragmentManager, "EDIT_CONTACT")
-
         }
 
         dialog.show()
@@ -107,6 +122,4 @@ class ContactScreen : Fragment(R.layout.screen_contact) {
         dialog.window?.attributes?.windowAnimations = R.style.DialogAnimation
         dialog.window?.setGravity(Gravity.BOTTOM)
     }
-
-
 }

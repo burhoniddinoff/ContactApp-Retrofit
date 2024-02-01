@@ -10,10 +10,27 @@
         android:name="com.example.contactappwithinternet.presentation.ui.contact.ContactScreen"
         android:label="ContactScreen"
         tools:layout="@layout/screen_contact">
+        <action
+            android:id="@+id/action_contactScreen_to_infoScreen"
+            app:destination="@id/infoScreen" />
     </fragment>
     <fragment
         android:id="@+id/addContactScreen"
         android:name="com.example.contactappwithinternet.presentation.ui.dialog.AddContactDialog"
         android:label="AddContactScreen"
         tools:layout="@layout/screen_add_contact" />
+
+    <fragment
+        android:id="@+id/infoScreen"
+        android:name="com.example.contactappwithinternet.presentation.ui.info.InfoScreen"
+        android:label="InfoScreen"
+        tools:layout="@layout/screen_info">
+        <argument
+            android:name="name"
+            app:argType="string" />
+
+        <argument
+            android:name="phone_number"
+            app:argType="string" />
+    </fragment>
 </navigation>

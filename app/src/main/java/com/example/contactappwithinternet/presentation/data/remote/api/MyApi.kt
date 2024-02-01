@@ -25,5 +25,4 @@ interface MyApi {
     @DELETE("api/v1/contact")
     fun deleteContact(@Query("id") id: Int): Call<Unit>
 
-
 }

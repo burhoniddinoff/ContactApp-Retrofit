@@ -7,15 +7,13 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.example.contactappwithinternet.databinding.ItemContactBinding
-import com.example.contactappwithinternet.presentation.data.model.ContactData
 import com.example.contactappwithinternet.presentation.data.remote.response.ContactResponse
-import kotlin.math.abs
 
 class ContactAdapter :
     ListAdapter<ContactResponse, ContactAdapter.ContactViewHolder>(ContactDiffUtil) {
 
     private var onLongClickListener: ((ContactResponse) -> Unit)? = null
-    private var onClickListener: ((Int) -> Unit)? = null
+    private var onClickListener: ((ContactResponse) -> Unit)? = null
 
     object ContactDiffUtil : DiffUtil.ItemCallback<ContactResponse>() {
         override fun areItemsTheSame(oldItem: ContactResponse, newItem: ContactResponse): Boolean {
@@ -40,7 +38,7 @@ class ContactAdapter :
             }
 
             binding.root.setOnClickListener {
-                onClickListener?.invoke(getItem(absoluteAdapterPosition).id)
+                onClickListener?.invoke(getItem(absoluteAdapterPosition))
             }
         }
 
@@ -63,7 +61,7 @@ class ContactAdapter :
         this.onLongClickListener = block
     }
 
-    fun setOnClickListener(block: (Int) -> Unit) {
+    fun setOnClickListener(block: (ContactResponse) -> Unit) {
         this.onClickListener = block
     }
 

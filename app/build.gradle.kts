@@ -79,8 +79,8 @@ dependencies {
     /**
      *  Chuck
      */
-//    debugImplementation("com.readystatesoftware.chuck:library:1.1.0")
-//    releaseImplementation("com.readystatesoftware.chuck:library-no-op:1.1.0")
+    debugImplementation("com.readystatesoftware.chuck:library:1.1.0")
+    releaseImplementation("com.readystatesoftware.chuck:library-no-op:1.1.0")
 
     /**
      * Gson

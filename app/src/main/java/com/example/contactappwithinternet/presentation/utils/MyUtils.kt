@@ -17,10 +17,8 @@ fun FragmentActivity.addScreen(fm: Fragment) {
 }
 
 fun FragmentActivity.replaceScreen(fm: Fragment) {
-    supportFragmentManager.beginTransaction()
-        .replace(R.id.container, fm)
-        .addToBackStack(fm::class.java.name)
-        .commit()
+    supportFragmentManager.beginTransaction().replace(R.id.container, fm)
+        .addToBackStack(fm::class.java.name).commit()
 }
 
 fun FragmentActivity.replaceScreenWithoutSave(fm: Fragment) {

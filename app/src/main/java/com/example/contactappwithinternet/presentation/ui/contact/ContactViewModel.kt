@@ -30,6 +30,9 @@ class ContactViewModel : ViewModel() {
     private val _error = MutableLiveData<String>()
     val error: LiveData<String> get() = _error
 
+    private val _success = MutableLiveData<String>()
+    val success: LiveData<String> get() = _success
+
     private val _openAddScreen = MutableLiveData<Unit>()
     val openAddScreen: LiveData<Unit> get() = _openAddScreen
 
@@ -78,8 +81,10 @@ class ContactViewModel : ViewModel() {
             ) {
                 _progressBar.value = false
 
-                if (response.isSuccessful && response.body() != null) loadAllContact()
-                else {
+                if (response.isSuccessful && response.body() != null) {
+                    loadAllContact()
+                    _success.value = "Contact successfully added!"
+                } else {
                     if (response.errorBody() != null) {
                         val gson = Gson()
                         val data = gson.fromJson(
@@ -88,7 +93,6 @@ class ContactViewModel : ViewModel() {
                         _error.value = data.message
                     } else _error.value = "Unknown error!"
                 }
-
             }
 
             override fun onFailure(call: Call<ContactResponse>, t: Throwable) {
@@ -105,8 +109,10 @@ class ContactViewModel : ViewModel() {
         api.deleteContact(id).enqueue(object : Callback<Unit> {
             override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
                 _progressBar.value = false
-                if (response.isSuccessful && response.body() != null) loadAllContact()
-                else {
+                if (response.isSuccessful && response.body() != null) {
+                    loadAllContact()
+                    _success.value = "Contact deleted successfully!"
+                } else {
                     if (response.errorBody() != null) {
                         val gson = Gson()
                         val data = gson.fromJson(
@@ -133,11 +139,13 @@ class ContactViewModel : ViewModel() {
                 response: Response<ContactResponse>,
             ) {
                 _progressBar.value = false
-                if (response.isSuccessful && response.body() != null) loadAllContact()
-                else {
+                if (response.isSuccessful && response.body() != null) {
+                    loadAllContact()
+                    _success.value = "Contact updated successfully!"
+                } else {
                     if (response.errorBody() != null) {
                         val gson = Gson()
-                        val data = gson.fromJson(
+                        val data: ErrorResponse = gson.fromJson(
                             response.errorBody()!!.string(), ErrorResponse::class.java
                         )
                         _error.value = data.message
@@ -149,9 +157,7 @@ class ContactViewModel : ViewModel() {
                 _progressBar.value = false
                 _error.value = "Error: ${t.message}"
             }
-
         })
-
     }
 
     fun openAddScreen() {
