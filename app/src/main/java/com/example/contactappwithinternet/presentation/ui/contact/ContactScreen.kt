@@ -4,7 +4,6 @@ import android.app.Dialog
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.util.Log
 import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
@@ -32,7 +31,15 @@ class ContactScreen : Fragment(R.layout.screen_contact) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) = binding.myApply {
         recycler.adapter = adapter
 
-        addBtn.setOnClickListener { viewModel.openAddScreen() }
+        addBtn.setOnClickListener {
+            val addContact = AddContactDialog()
+
+            addContact.setListener {
+                viewModel.addContact(it.firstName, it.lastName, it.phone)
+            }
+
+            addContact.show(childFragmentManager, "ADD_CONTACT")
+        }
 
         adapter.setOnLongClickListener {
             showDialog(it)
@@ -52,9 +59,7 @@ class ContactScreen : Fragment(R.layout.screen_contact) {
         viewModel.progressBar.observe(viewLifecycleOwner, progressObserver)
         viewModel.isEmpty.observe(viewLifecycleOwner, isEmptyObserver)
         viewModel.error.observe(viewLifecycleOwner, errorObserver)
-        viewModel.openAddScreen.observe(viewLifecycleOwner, openAddScreenObserver)
         viewModel.success.observe(viewLifecycleOwner, successMessageObserver)
-
 
         requireActivity().window.statusBarColor = Color.parseColor("#9D9BFE")
     }
@@ -79,16 +84,6 @@ class ContactScreen : Fragment(R.layout.screen_contact) {
 
     private val successMessageObserver = Observer<String> {
         Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show()
-    }
-
-    private val openAddScreenObserver = Observer<Unit> {
-        val addContact = AddContactDialog()
-
-        addContact.setListener {
-            viewModel.addContact(it.firstName, it.lastName, it.phone)
-        }
-
-        addContact.show(childFragmentManager, "ADD_CONTACT")
     }
 
     private fun showDialog(data: ContactResponse) {

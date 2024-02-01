@@ -16,7 +16,6 @@ import retrofit2.Response
 
 class ContactViewModel : ViewModel() {
     private val api = MyClient.retrofit.create(MyApi::class.java)
-    //    private val list = ArrayList<ContactResponse>()
 
     private val _contact = MutableLiveData<List<ContactResponse>>()
     val contact: LiveData<List<ContactResponse>> get() = _contact
@@ -32,10 +31,6 @@ class ContactViewModel : ViewModel() {
 
     private val _success = MutableLiveData<String>()
     val success: LiveData<String> get() = _success
-
-    private val _openAddScreen = MutableLiveData<Unit>()
-    val openAddScreen: LiveData<Unit> get() = _openAddScreen
-
 
     fun loadAllContact() {
         _progressBar.value = true
@@ -158,10 +153,6 @@ class ContactViewModel : ViewModel() {
                 _error.value = "Error: ${t.message}"
             }
         })
-    }
-
-    fun openAddScreen() {
-        _openAddScreen.value = Unit
     }
 
 }

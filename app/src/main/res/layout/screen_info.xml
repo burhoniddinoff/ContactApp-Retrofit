@@ -4,37 +4,67 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <FrameLayout
+    <View
         android:id="@+id/linear"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:background="#b6b7bc"
-        app:layout_constraintVertical_weight="2"
         app:layout_constraintBottom_toTopOf="@id/recycler"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_weight="2" />
 
-        <ImageView
-            android:id="@+id/back"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:padding="10dp"
-            android:src="@drawable/ic_back" />
+    <View
+        android:id="@+id/circle_center_2"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/bg_radius_2"
+        android:padding="6sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/white" />
 
-        <TextView
-            android:id="@+id/nameFirst"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginBottom="40dp"
-            android:text="@string/a"
-            android:textColor="@color/white"
-            android:textSize="128sp"
-            android:textStyle="bold" />
+    <ImageView
+        android:id="@+id/back"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:padding="10dp"
+        android:layout_marginEnd="3dp"
+        android:src="@drawable/ios_back_3"
+        app:layout_constraintBottom_toBottomOf="@id/circle_center_2"
+        app:layout_constraintEnd_toEndOf="@id/circle_center_2"
+        app:layout_constraintStart_toStartOf="@id/circle_center_2"
+        app:layout_constraintTop_toTopOf="@id/circle_center_2"
+        app:tint="@color/white" />
 
-    </FrameLayout>
+
+    <View
+        android:id="@+id/circle_center"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_gravity="center"
+        android:background="@drawable/bg_radius_3"
+        app:layout_constraintBottom_toTopOf="@+id/fullName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/linear" />
+
+    <TextView
+        android:id="@+id/nameFirst"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/a"
+        android:textColor="@color/white"
+        android:textSize="128sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/circle_center"
+        app:layout_constraintEnd_toEndOf="@id/circle_center"
+        app:layout_constraintStart_toStartOf="@id/circle_center"
+        app:layout_constraintTop_toTopOf="@id/circle_center" />
+
 
     <LinearLayout
         android:id="@+id/linear_message"
@@ -112,12 +142,12 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler"
-        app:layout_constraintVertical_weight="1"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/linear" />
+        app:layout_constraintTop_toBottomOf="@id/linear"
+        app:layout_constraintVertical_weight="1" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
