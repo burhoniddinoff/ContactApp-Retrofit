@@ -8,14 +8,14 @@ class MyApp : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        instance = this
+//        instance = this
     }
 
-    companion object {
-        @SuppressLint("StaticFieldLeak")
-        lateinit var instance: Context
-            private set
-    }
+//    companion object {
+//        @SuppressLint("StaticFieldLeak")
+//        lateinit var instance: Context
+//            private set
+//    }
 
 
 }
