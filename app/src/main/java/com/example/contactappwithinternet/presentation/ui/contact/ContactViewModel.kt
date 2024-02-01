@@ -8,6 +8,8 @@ import com.example.contactappwithinternet.presentation.data.remote.api.MyApi
 import com.example.contactappwithinternet.presentation.data.remote.request.CreateContactRequest
 import com.example.contactappwithinternet.presentation.data.remote.request.EditContactRequest
 import com.example.contactappwithinternet.presentation.data.remote.response.ContactResponse
+import com.example.contactappwithinternet.presentation.data.remote.response.ErrorResponse
+import com.google.gson.Gson
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -41,18 +43,24 @@ class ContactViewModel : ViewModel() {
                 response: Response<List<ContactResponse>>,
             ) {
                 _progressBar.value = false
-                if (response.isSuccessful) {
+                if (response.isSuccessful && response.body() != null) {
                     response.body()?.let {
                         _contact.value = it
                     }
                 } else {
-                    _error.value = response.errorBody().toString()
+                    if (response.errorBody() != null) {
+                        val gson = Gson()
+                        val data = gson.fromJson(
+                            response.errorBody()!!.string(), ErrorResponse::class.java
+                        )
+                        _error.value = data.message
+                    } else _error.value = "Unknown error!"
                 }
             }
 
             override fun onFailure(call: Call<List<ContactResponse>>, t: Throwable) {
                 _progressBar.value = false
-                _error.value = t.message.toString()
+                _error.value = "Error: ${t.message}"
             }
         })
     }
@@ -70,14 +78,22 @@ class ContactViewModel : ViewModel() {
             ) {
                 _progressBar.value = false
 
-                if (response.isSuccessful) loadAllContact()
-                else _error.value = response.errorBody().toString()
+                if (response.isSuccessful && response.body() != null) loadAllContact()
+                else {
+                    if (response.errorBody() != null) {
+                        val gson = Gson()
+                        val data = gson.fromJson(
+                            response.errorBody()!!.string(), ErrorResponse::class.java
+                        )
+                        _error.value = data.message
+                    } else _error.value = "Unknown error!"
+                }
 
             }
 
             override fun onFailure(call: Call<ContactResponse>, t: Throwable) {
                 _progressBar.value = false
-                _error.value = t.message.toString()
+                _error.value = "Error: ${t.message}"
             }
 
         })
@@ -89,13 +105,21 @@ class ContactViewModel : ViewModel() {
         api.deleteContact(id).enqueue(object : Callback<Unit> {
             override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
                 _progressBar.value = false
-                if (response.isSuccessful) loadAllContact()
-                else _error.value = response.errorBody().toString()
+                if (response.isSuccessful && response.body() != null) loadAllContact()
+                else {
+                    if (response.errorBody() != null) {
+                        val gson = Gson()
+                        val data = gson.fromJson(
+                            response.errorBody()!!.string(), ErrorResponse::class.java
+                        )
+                        _error.value = data.message
+                    } else _error.value = "Unknown error!"
+                }
             }
 
             override fun onFailure(call: Call<Unit>, t: Throwable) {
                 _progressBar.value = false
-                _error.value = t.message.toString()
+                _error.value = "Error: ${t.message}"
             }
         })
     }
@@ -109,13 +133,21 @@ class ContactViewModel : ViewModel() {
                 response: Response<ContactResponse>,
             ) {
                 _progressBar.value = false
-                if (response.isSuccessful) loadAllContact()
-                else _error.value = response.errorBody().toString()
+                if (response.isSuccessful && response.body() != null) loadAllContact()
+                else {
+                    if (response.errorBody() != null) {
+                        val gson = Gson()
+                        val data = gson.fromJson(
+                            response.errorBody()!!.string(), ErrorResponse::class.java
+                        )
+                        _error.value = data.message
+                    } else _error.value = "Unknown error!"
+                }
             }
 
             override fun onFailure(call: Call<ContactResponse>, t: Throwable) {
                 _progressBar.value = false
-                _error.value = t.message.toString()
+                _error.value = "Error: ${t.message}"
             }
 
         })
