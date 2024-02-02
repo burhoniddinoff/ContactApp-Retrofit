@@ -24,6 +24,7 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
         android:text="@string/phone_number"
         android:textColor="#1B1D28"
         android:textSize="16sp"
@@ -32,8 +33,9 @@
 
     <EditText
         android:id="@+id/phone_number"
-        android:layout_width="312dp"
-        android:layout_height="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="56sp"
+        android:layout_marginHorizontal="50dp"
         android:background="@drawable/bg_oval"
         android:gravity="center"
         android:inputType="phone"
@@ -41,12 +43,14 @@
         app:layout_constraintBottom_toTopOf="@id/password"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        tools:ignore="Autofill,LabelFor" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
         android:text="@string/password"
         android:textColor="#1B1D28"
         android:textSize="16sp"
@@ -55,8 +59,9 @@
 
     <EditText
         android:id="@+id/password"
-        android:layout_width="312dp"
-        android:layout_height="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="56sp"
+        android:layout_marginHorizontal="50dp"
         android:background="@drawable/bg_oval"
         android:gravity="center"
         android:inputType="textPassword"
@@ -64,21 +69,22 @@
         app:layout_constraintBottom_toTopOf="@+id/createAccount"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/phone_number" />
+        app:layout_constraintTop_toBottomOf="@+id/phone_number"
+        tools:ignore="Autofill,LabelFor" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/createAccount"
-        android:layout_width="311dp"
-        android:layout_height="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginHorizontal="50dp"
         android:background="@drawable/bg_button"
-        android:text="Login account!"
+        android:text="@string/login_account2"
         android:textAllCaps="false"
         android:textColor="@color/white"
         app:layout_constraintBottom_toTopOf="@+id/textSignIN"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/password"
-        app:layout_constraintVertical_bias="0.514" />
+        app:layout_constraintTop_toBottomOf="@id/password" />
 
     <TextView
         android:id="@+id/textSignIN"

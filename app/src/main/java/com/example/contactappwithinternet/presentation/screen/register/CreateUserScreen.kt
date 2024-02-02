@@ -52,7 +52,7 @@ class CreateUserScreen : Fragment(R.layout.screen_register) {
 
     private val error1Observer = Observer<Boolean> {
         if (it) findNavController().navigate(
-            CreateUserScreenDirections.actionCreateUserScreenToVerifySmsScreen()
+            CreateUserScreenDirections.actionCreateUserScreenToVerifySmsScreen(binding.phoneNumber.text.toString())
         ) else Toast.makeText(requireContext(), "Error!", Toast.LENGTH_SHORT).show()
     }
 

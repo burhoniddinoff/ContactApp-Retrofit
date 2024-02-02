@@ -18,7 +18,9 @@
             app:destination="@id/addContactScreen" />
         <action
             android:id="@+id/action_contactScreen_to_logInUserScreen"
-            app:destination="@id/logInUserScreen" />
+            app:destination="@id/logInUserScreen"
+            app:popUpTo="@id/contactScreen"
+            app:popUpToInclusive="true" />
 
     </fragment>
 
@@ -61,10 +63,12 @@
         tools:layout="@layout/screen_login">
         <action
             android:id="@+id/action_logInUserScreen_to_contactScreen"
-            app:destination="@id/contactScreen" />
+            app:destination="@id/contactScreen"
+            app:popUpTo="@id/logInUserScreen"
+            app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_logInUserScreen_to_createUserScreen"
-            app:destination="@id/createUserScreen" />
+            app:destination="@id/createUserScreen"/>
     </fragment>
 
     <fragment
@@ -84,7 +88,12 @@
         tools:layout="@layout/screen_verify_sms_code">
         <action
             android:id="@+id/action_verifySmsScreen_to_contactScreen"
-            app:destination="@id/contactScreen" />
+            app:destination="@id/contactScreen"
+            app:popUpTo="@id/verifySmsScreen"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="phone"
+            app:argType="string" />
     </fragment>
 
 </navigation>

@@ -16,4 +16,5 @@
     <string name="create_account_1">Create account for Contact app</string>
     <string name="code">Code</string>
     <string name="login_account">Login account for contact app!</string>
+    <string name="login_account2">Login account!</string>
 </resources>
