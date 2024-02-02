@@ -19,6 +19,7 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
     }
 
     buildTypes {
@@ -88,8 +89,17 @@ dependencies {
     implementation("com.google.code.gson:gson:2.10")
 
 
-
+    /**
+     * Navigation
+     */
 
     implementation("androidx.navigation:navigation-fragment-ktx:2.7.6")
     implementation("androidx.navigation:navigation-ui-ktx:2.7.6")
+
+
+    /**
+     * Refresh layout
+     */
+
+//    implementation ("com.github.mukeshsolanki:liquidrefreshlayout:1.0.2")
 }

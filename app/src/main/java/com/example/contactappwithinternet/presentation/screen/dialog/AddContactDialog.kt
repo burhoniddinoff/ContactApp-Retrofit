@@ -1,4 +1,4 @@
-package com.example.contactappwithinternet.presentation.ui.dialog
+package com.example.contactappwithinternet.presentation.screen.dialog
 
 import android.os.Bundle
 import android.view.View

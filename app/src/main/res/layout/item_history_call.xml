@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="120dp"
     android:layout_margin="20dp"
-    android:background="#1c1c1e">
+    android:background="@drawable/bg_radius_4">
 
     <TextView
         android:id="@+id/day"
@@ -40,6 +40,7 @@
         app:layout_constraintTop_toTopOf="@id/time" />
 
     <TextView
+        android:id="@+id/second"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginVertical="10dp"

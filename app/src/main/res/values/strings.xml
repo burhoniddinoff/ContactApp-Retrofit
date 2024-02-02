@@ -7,4 +7,13 @@
     <string name="save">Save</string>
     <string name="add_contact">Add contact</string>
     <string name="a">A</string>
+    <string name="confirm_password">Confirm password\n</string>
+    <string name="sign_in">Sign in</string>
+    <string name="create_account">Create account</string>
+    <string name="password">Password</string>
+    <string name="last_name">Last Name</string>
+    <string name="first_name">First Name</string>
+    <string name="create_account_1">Create account for Contact app</string>
+    <string name="code">Code</string>
+    <string name="login_account">Login account for contact app!</string>
 </resources>

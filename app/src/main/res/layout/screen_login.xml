@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/login_account"
+        android:textColor="#22215B"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@id/textView3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/phone_number"
+        android:textColor="#1B1D28"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@id/phone_number"
+        app:layout_constraintStart_toStartOf="@id/phone_number" />
+
+    <EditText
+        android:id="@+id/phone_number"
+        android:layout_width="312dp"
+        android:layout_height="50dp"
+        android:background="@drawable/bg_oval"
+        android:gravity="center"
+        android:inputType="phone"
+        android:maxLength="13"
+        app:layout_constraintBottom_toTopOf="@id/password"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/password"
+        android:textColor="#1B1D28"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@id/password"
+        app:layout_constraintStart_toStartOf="@id/password" />
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="312dp"
+        android:layout_height="50dp"
+        android:background="@drawable/bg_oval"
+        android:gravity="center"
+        android:inputType="textPassword"
+        android:maxLength="21"
+        app:layout_constraintBottom_toTopOf="@+id/createAccount"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/phone_number" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/createAccount"
+        android:layout_width="311dp"
+        android:layout_height="50dp"
+        android:background="@drawable/bg_button"
+        android:text="Login account!"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/textSignIN"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/password"
+        app:layout_constraintVertical_bias="0.514" />
+
+    <TextView
+        android:id="@+id/textSignIN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:text="@string/create_account"
+        android:textColor="#1B1D28"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/createAccount" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

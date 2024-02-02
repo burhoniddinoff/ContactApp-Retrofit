@@ -1,4 +1,4 @@
-package com.example.contactappwithinternet.presentation.ui.contact
+package com.example.contactappwithinternet.presentation.screen.contact
 
 import android.app.Dialog
 import android.graphics.Color
@@ -18,15 +18,16 @@ import com.example.contactappwithinternet.R
 import com.example.contactappwithinternet.databinding.ScreenContactBinding
 import com.example.contactappwithinternet.presentation.data.remote.request.EditContactRequest
 import com.example.contactappwithinternet.presentation.data.remote.response.ContactResponse
-import com.example.contactappwithinternet.presentation.ui.adapter.ContactAdapter
-import com.example.contactappwithinternet.presentation.ui.dialog.AddContactDialog
-import com.example.contactappwithinternet.presentation.ui.dialog.EditContactDialog
+import com.example.contactappwithinternet.presentation.screen.adapter.ContactAdapter
+import com.example.contactappwithinternet.presentation.screen.dialog.AddContactDialog
+import com.example.contactappwithinternet.presentation.screen.dialog.EditContactDialog
 import com.example.contactappwithinternet.presentation.utils.myApply
+import com.example.contactappwithinternet.presentation.utils.popBackStack
 
 class ContactScreen : Fragment(R.layout.screen_contact) {
     private val binding by viewBinding(ScreenContactBinding::bind)
-    private val viewModel by viewModels<ContactViewModel>()
     private val adapter by lazy { ContactAdapter() }
+    private val viewModel by viewModels<ContactViewModel>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) = binding.myApply {
         recycler.adapter = adapter
@@ -43,6 +44,11 @@ class ContactScreen : Fragment(R.layout.screen_contact) {
 
         adapter.setOnLongClickListener {
             showDialog(it)
+        }
+
+        logOut.setOnClickListener {
+            findNavController().navigate(ContactScreenDirections.actionContactScreenToLogInUserScreen())
+
         }
 
         adapter.setOnClickListener {

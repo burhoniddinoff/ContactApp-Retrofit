@@ -3,26 +3,34 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph.xml"
-    app:startDestination="@id/contactScreen">
+    app:startDestination="@id/splashScreen">
 
     <fragment
         android:id="@+id/contactScreen"
-        android:name="com.example.contactappwithinternet.presentation.ui.contact.ContactScreen"
+        android:name="com.example.contactappwithinternet.presentation.screen.contact.ContactScreen"
         android:label="ContactScreen"
         tools:layout="@layout/screen_contact">
         <action
             android:id="@+id/action_contactScreen_to_infoScreen"
             app:destination="@id/infoScreen" />
+        <action
+            android:id="@+id/action_contactScreen_to_addContactScreen"
+            app:destination="@id/addContactScreen" />
+        <action
+            android:id="@+id/action_contactScreen_to_logInUserScreen"
+            app:destination="@id/logInUserScreen" />
+
     </fragment>
+
     <fragment
         android:id="@+id/addContactScreen"
-        android:name="com.example.contactappwithinternet.presentation.ui.dialog.AddContactDialog"
+        android:name="com.example.contactappwithinternet.presentation.screen.dialog.AddContactDialog"
         android:label="AddContactScreen"
         tools:layout="@layout/screen_add_contact" />
 
     <fragment
         android:id="@+id/infoScreen"
-        android:name="com.example.contactappwithinternet.presentation.ui.info.InfoScreen"
+        android:name="com.example.contactappwithinternet.presentation.screen.info.InfoScreen"
         android:label="InfoScreen"
         tools:layout="@layout/screen_info">
         <argument
@@ -33,4 +41,50 @@
             android:name="phone_number"
             app:argType="string" />
     </fragment>
+
+    <fragment
+        android:id="@+id/splashScreen"
+        android:name="com.example.contactappwithinternet.presentation.screen.splash.SplashScreen"
+        android:label="SplashScreen"
+        tools:layout="@layout/screen_splash">
+        <action
+            android:id="@+id/action_splashScreen_to_logInUserScreen"
+            app:destination="@id/logInUserScreen"
+            app:popUpTo="@id/splashScreen"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/logInUserScreen"
+        android:name="com.example.contactappwithinternet.presentation.screen.logIn.LogInUserScreen"
+        android:label="LogInUserScreen"
+        tools:layout="@layout/screen_login">
+        <action
+            android:id="@+id/action_logInUserScreen_to_contactScreen"
+            app:destination="@id/contactScreen" />
+        <action
+            android:id="@+id/action_logInUserScreen_to_createUserScreen"
+            app:destination="@id/createUserScreen" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/createUserScreen"
+        android:name="com.example.contactappwithinternet.presentation.screen.register.CreateUserScreen"
+        android:label="CreateUserScreen"
+        tools:layout="@layout/screen_register">
+        <action
+            android:id="@+id/action_createUserScreen_to_verifySmsScreen"
+            app:destination="@id/verifySmsScreen" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/verifySmsScreen"
+        android:name="com.example.contactappwithinternet.presentation.screen.verify.VerifySmsScreen"
+        android:label="VerifySmsScreen"
+        tools:layout="@layout/screen_verify_sms_code">
+        <action
+            android:id="@+id/action_verifySmsScreen_to_contactScreen"
+            app:destination="@id/contactScreen" />
+    </fragment>
+
 </navigation>

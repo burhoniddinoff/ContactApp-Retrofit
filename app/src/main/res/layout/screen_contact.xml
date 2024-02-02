@@ -20,6 +20,15 @@
             android:textColor="@color/white"
             android:textSize="24sp" />
 
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/log_out"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|center"
+            android:layout_marginEnd="10dp"
+            android:text="LOG OUT"
+            android:textColor="@color/white" />
+
     </FrameLayout>
 
     <FrameLayout

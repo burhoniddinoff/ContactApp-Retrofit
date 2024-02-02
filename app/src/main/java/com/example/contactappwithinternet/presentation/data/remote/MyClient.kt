@@ -12,11 +12,17 @@ object MyClient {
 //        ChuckInterceptor(MyApp.instance)
 //    ).build()
 
+//        .client(client)
+
+
     val retrofit: Retrofit = Retrofit.Builder()
 //        .baseUrl("https://8a11-94-158-61-221.ngrok-free.app")
-        .baseUrl("https://5f14-82-215-92-25.ngrok-free.app/")
-        .addConverterFactory(GsonConverterFactory.create())
-//        .client(client)
-        .build()
+//        .baseUrl("https://5f14-82-215-92-25.ngrok-free.app/")
+//        .baseUrl("https://d8c3-82-215-92-25.ngrok-free.app/")
+//        .baseUrl("https://a0af-82-215-92-25.ngrok-free.app/")
+//        .baseUrl("https://5613-195-158-16-140.ngrok-free.app/")
+
+        .baseUrl("https://8312-95-214-211-142.ngrok-free.app/")
+        .addConverterFactory(GsonConverterFactory.create()).build()
 
 }

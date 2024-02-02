@@ -1,4 +1,4 @@
-package com.example.contactappwithinternet.presentation.ui.adapter
+package com.example.contactappwithinternet.presentation.screen.adapter
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
