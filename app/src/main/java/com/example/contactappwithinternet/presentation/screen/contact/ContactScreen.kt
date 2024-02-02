@@ -42,6 +42,10 @@ class ContactScreen : Fragment(R.layout.screen_contact) {
             addContact.show(childFragmentManager, "ADD_CONTACT")
         }
 
+        swipeRefreshLayout.setOnRefreshListener {
+            viewModel.loadAllContact()
+        }
+
         adapter.setOnLongClickListener {
             showDialog(it)
         }
@@ -72,11 +76,11 @@ class ContactScreen : Fragment(R.layout.screen_contact) {
 
     private val contactObserver = Observer<List<ContactResponse>> {
         adapter.submitList(it)
+        binding.swipeRefreshLayout.isRefreshing = false
     }
 
     private val progressObserver = Observer<Boolean> {
-        if (it) binding.progress.show()
-        else binding.progress.hide()
+//        binding.swipeRefreshLayout.isRefreshing = it
     }
 
     private val isEmptyObserver = Observer<Boolean> {

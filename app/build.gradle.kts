@@ -102,4 +102,6 @@ dependencies {
      */
 
 //    implementation ("com.github.mukeshsolanki:liquidrefreshlayout:1.0.2")
+    implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
+
 }

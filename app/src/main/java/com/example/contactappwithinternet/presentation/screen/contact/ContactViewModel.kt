@@ -57,6 +57,7 @@ class ContactViewModel() : ViewModel() {
                         val gson = Gson()
                         val data = gson.fromJson(
                             response.errorBody()!!.string(), ErrorResponse::class.java // ->
+                            
                         )
                         _error.value = data.message
                     } else _error.value = "Unknown error!"
