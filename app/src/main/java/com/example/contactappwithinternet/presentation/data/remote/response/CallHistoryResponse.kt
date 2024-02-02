@@ -1,4 +1,4 @@
-package com.example.contactappwithinternet.presentation.data.remote.data
+package com.example.contactappwithinternet.presentation.data.remote.response
 
 data class CallHistoryResponse(
     val id: Int,

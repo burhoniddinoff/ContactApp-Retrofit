@@ -102,6 +102,10 @@ dependencies {
      */
 
 //    implementation ("com.github.mukeshsolanki:liquidrefreshlayout:1.0.2")
+//    implementation ("com.github.recruit-lifestyle:WaveSwipeRefreshLayout:1.6")
+//    implementation ("com.github.liaohuqiu.android:Ultra-Pull-To-Refresh:3.1.6")
+
+
     implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
 
 }

@@ -9,7 +9,7 @@ import com.example.contactappwithinternet.presentation.data.remote.api.MyApi
 import com.example.contactappwithinternet.presentation.data.remote.request.CreateContactRequest
 import com.example.contactappwithinternet.presentation.data.remote.request.EditContactRequest
 import com.example.contactappwithinternet.presentation.data.remote.response.ContactResponse
-import com.example.contactappwithinternet.presentation.data.remote.data.ErrorResponse
+import com.example.contactappwithinternet.presentation.data.remote.response.ErrorResponse
 import com.example.contactappwithinternet.presentation.utils.myLog
 import com.google.gson.Gson
 import retrofit2.Call
@@ -57,7 +57,7 @@ class ContactViewModel() : ViewModel() {
                         val gson = Gson()
                         val data = gson.fromJson(
                             response.errorBody()!!.string(), ErrorResponse::class.java // ->
-                            
+
                         )
                         _error.value = data.message
                     } else _error.value = "Unknown error!"

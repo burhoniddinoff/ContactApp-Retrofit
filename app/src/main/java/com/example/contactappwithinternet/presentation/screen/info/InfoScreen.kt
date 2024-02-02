@@ -11,7 +11,7 @@ import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.contactappwithinternet.R
 import com.example.contactappwithinternet.databinding.ScreenInfoBinding
-import com.example.contactappwithinternet.presentation.data.remote.data.CallHistoryResponse
+import com.example.contactappwithinternet.presentation.data.remote.response.CallHistoryResponse
 import com.example.contactappwithinternet.presentation.screen.adapter.CallHistoryAdapter
 import java.util.Calendar
 

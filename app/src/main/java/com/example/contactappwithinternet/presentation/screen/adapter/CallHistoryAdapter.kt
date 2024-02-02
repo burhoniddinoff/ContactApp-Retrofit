@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.example.contactappwithinternet.databinding.ItemHistoryCallBinding
-import com.example.contactappwithinternet.presentation.data.remote.data.CallHistoryResponse
+import com.example.contactappwithinternet.presentation.data.remote.response.CallHistoryResponse
 
 class CallHistoryAdapter :
     ListAdapter<CallHistoryResponse, CallHistoryAdapter.ContactViewHolder>(ContactDiffUtil) {

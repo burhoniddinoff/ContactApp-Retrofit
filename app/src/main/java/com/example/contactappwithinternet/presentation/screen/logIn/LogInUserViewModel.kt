@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 import com.example.contactappwithinternet.presentation.data.remote.MyClient
 import com.example.contactappwithinternet.presentation.data.remote.api.MyApi
 import com.example.contactappwithinternet.presentation.data.remote.request.LoginRequest
-import com.example.contactappwithinternet.presentation.data.remote.data.ErrorResponse
+import com.example.contactappwithinternet.presentation.data.remote.response.ErrorResponse
 import com.example.contactappwithinternet.presentation.data.remote.response.VerifySmsResponce
 import com.google.gson.Gson
 import retrofit2.Call

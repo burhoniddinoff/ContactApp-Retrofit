@@ -22,7 +22,6 @@ import com.example.contactappwithinternet.presentation.screen.adapter.ContactAda
 import com.example.contactappwithinternet.presentation.screen.dialog.AddContactDialog
 import com.example.contactappwithinternet.presentation.screen.dialog.EditContactDialog
 import com.example.contactappwithinternet.presentation.utils.myApply
-import com.example.contactappwithinternet.presentation.utils.popBackStack
 
 class ContactScreen : Fragment(R.layout.screen_contact) {
     private val binding by viewBinding(ScreenContactBinding::bind)
@@ -52,7 +51,6 @@ class ContactScreen : Fragment(R.layout.screen_contact) {
 
         logOut.setOnClickListener {
             findNavController().navigate(ContactScreenDirections.actionContactScreenToLogInUserScreen())
-
         }
 
         adapter.setOnClickListener {
@@ -80,7 +78,10 @@ class ContactScreen : Fragment(R.layout.screen_contact) {
     }
 
     private val progressObserver = Observer<Boolean> {
-//        binding.swipeRefreshLayout.isRefreshing = it
+
+        if (it) binding.progress.show()
+        else binding.progress.hide()
+
     }
 
     private val isEmptyObserver = Observer<Boolean> {
